@@ -41,9 +41,59 @@ function startGame() {
   const nameInput = document.getElementById('playerName');
   userName = nameInput.value.trim() || 'Player';
   document.getElementById('nameInputContainer').style.display = 'none';
+  
+  // Show mobile controls if on mobile
+  if (window.innerWidth <= 1024) {
+    document.querySelectorAll('#controls').forEach(ctrl => ctrl.style.display = 'flex');
+  }
+  
   gameStarted = true;
   loop();
 }
+
+// Mobile touch controls
+let touchStartX = 0;
+let touchStartY = 0;
+
+function moveUp() {
+  if (dir.y === 0) dir = {x:0, y:-1};
+}
+
+function moveDown() {
+  if (dir.y === 0) dir = {x:0, y:1};
+}
+
+function moveLeft() {
+  if (dir.x === 0) dir = {x:-1, y:0};
+}
+
+function moveRight() {
+  if (dir.x === 0) dir = {x:1, y:0};
+}
+
+// Touch/Swipe detection
+document.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+  touchStartY = e.changedTouches[0].screenY;
+}, false);
+
+document.addEventListener('touchend', (e) => {
+  const touchEndX = e.changedTouches[0].screenX;
+  const touchEndY = e.changedTouches[0].screenY;
+  
+  const diffX = touchEndX - touchStartX;
+  const diffY = touchEndY - touchStartY;
+  const threshold = 50;
+  
+  // Determine swipe direction
+  if (Math.abs(diffX) > Math.abs(diffY)) {
+    if (diffX > threshold) moveRight();
+    else if (diffX < -threshold) moveLeft();
+  } else {
+    if (diffY > threshold) moveDown();
+    else if (diffY < -threshold) moveUp();
+  }
+}, false);
 
 let snake = [
   {x:5,y:5},
