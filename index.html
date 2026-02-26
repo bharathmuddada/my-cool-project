@@ -52,7 +52,7 @@
       border-radius:15px;
       box-shadow: 0 0 30px rgba(255, 20, 147, 0.4);
       text-align:center;
-      z-index:100;
+      z-index:1000;
       animation: fadeIn 0.5s ease;
     }
     #nameInputContainer h2 {
@@ -131,13 +131,14 @@
     }
     #controls {
       position:absolute;
-      bottom:30px;
+      bottom:10px;
       display:none;
       flex-direction:column;
       gap:8px;
       justify-content:center;
       align-items:center;
       width:100%;
+      z-index:50;
     }
     .btn-arrow {
       width:60px;
@@ -155,7 +156,6 @@
       background:#FF69B4;
       transform: scale(0.95);
     }
-    /* Mobile responsive styles */
     @media (max-width: 1024px) {
       canvas {
         width:90vw;
@@ -165,8 +165,12 @@
         border:6px solid #FF1493;
       }
       #score {
-        font-size:28px;
-        right:20px;
+        font-size:24px;
+        right:auto;
+        left:20px;
+        top:auto;
+        bottom:190px;
+        transform:none;
       }
       #title {
         font-size:22px;
