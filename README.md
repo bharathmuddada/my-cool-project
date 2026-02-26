@@ -2,7 +2,13 @@
 
 A fun, colorful, and interactive Snake game built with vanilla JavaScript and HTML5 Canvas! Perfect for kids and casual gamers.
 
-## 🎮 Features
+## 🎮 Play Now!
+
+**[🕹️ PLAY THE GAME HERE!](https://bharathmuddada.github.io/my-cool-project/)**
+
+The game is live and ready to play right now! 🚀
+
+## ✨ Features
 
 ✨ **Visual Design**
 - Kid-friendly vibrant colors with gradient backgrounds
@@ -27,20 +33,26 @@ A fun, colorful, and interactive Snake game built with vanilla JavaScript and HT
 
 ## 📦 Files
 
-- **snakeGame.html** - Main HTML file with styling
+- **index.html** - Main HTML file with styling and UI elements
 - **snake.js** - Game logic and mechanics
 - **README.md** - This documentation file
 
 ## 🚀 How to Run
 
+### **Online (Recommended)**
+Simply visit: **[https://bharathmuddada.github.io/my-cool-project/](https://bharathmuddada.github.io/my-cool-project/)**
+
+The game is already hosted and ready to play!
+
+### **Locally**
 1. **Clone or Download the Files**
    ```bash
-   git clone <repo-url>
-   cd GithubCopilotLearning-01
+   git clone https://github.com/bharathmuddada/my-cool-project.git
+   cd my-cool-project
    ```
 
 2. **Open in Browser**
-   - Simply open `snakeGame.html` in your web browser
+   - Simply open `index.html` in your web browser
    - No server or special installation needed!
 
 3. **Start Playing**
