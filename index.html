@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Snake</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      background: linear-gradient(135deg, #FFB6C1 0%, #87CEEB 50%, #DDA0DD 100%); 
+      margin:0; 
+      height:100vh; 
+      display:flex; 
+      justify-content:center; 
+      align-items:center; 
+      font-family:'Arial Black', sans-serif;
+    }
+    canvas { 
+      display:block; 
+      background:#FFF8DC; 
+      border:8px solid #FF1493; 
+      border-radius:15px;
+      box-shadow: 0 0 30px rgba(255, 20, 147, 0.6), 0 10px 30px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+    canvas:hover {
+      transform: scale(1.02);
+    }
+    #score { 
+      position:absolute; 
+      right:40px; 
+      top:50%;
+      transform:translateY(-50%);
+      color:#FF1493; 
+      font-size:48px; 
+      font-weight:bold;
+      text-shadow: 0 0 20px #FFB6C1, 0 0 40px #FF69B4, 2px 2px 4px rgba(0,0,0,0.2);
+      letter-spacing:3px;
+      animation: pulse 1s infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    #nameInputContainer {
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      background:white;
+      padding:40px;
+      border-radius:15px;
+      box-shadow: 0 0 30px rgba(255, 20, 147, 0.4);
+      text-align:center;
+      z-index:100;
+      animation: fadeIn 0.5s ease;
+    }
+    #nameInputContainer h2 {
+      color:#FF1493;
+      margin-bottom:20px;
+      font-size:24px;
+    }
+    #nameInputContainer input {
+      padding:12px 15px;
+      font-size:18px;
+      border:3px solid #FF1493;
+      border-radius:8px;
+      width:250px;
+      margin-right:10px;
+    }
+    #nameInputContainer button {
+      padding:12px 30px;
+      font-size:16px;
+      background:#FF1493;
+      color:white;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:bold;
+      transition: background 0.3s;
+    }
+    #nameInputContainer button:hover {
+      background:#FF69B4;
+    }
+    #gameOverScreen {
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.8);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:200;
+    }
+    #gameOverContent {
+      background:linear-gradient(135deg, #FFB6C1 0%, #DDA0DD 100%);
+      padding:60px 40px;
+      border-radius:20px;
+      text-align:center;
+      box-shadow: 0 0 50px rgba(255, 20, 147, 0.6);
+      animation: fadeIn 0.5s ease;
+    }
+    #gameOverContent h1 {
+      color:#FF1493;
+      font-size:48px;
+      margin:20px 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    #gameOverContent p {
+      color:#333;
+      font-size:32px;
+      margin:20px 0;
+      font-weight:bold;
+    }
+    #gameOverContent button {
+      padding:15px 40px;
+      font-size:18px;
+      background:#FF1493;
+      color:white;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:bold;
+      margin-top:30px;
+      transition: background 0.3s;
+    }
+    #gameOverContent button:hover {
+      background:#FF69B4;
+    }
+    #title {
+      position:absolute;
+      top:50px;
+      left:50%;
+      transform:translateX(-50%);
+      color:#FF1493;
+      font-size:28px;
+      white-space:nowrap;
+      text-shadow: 0 0 20px #FFB6C1, 2px 2px 4px rgba(0,0,0,0.2);
+      letter-spacing:2px;
+    }
+  </style>
+</head>
+<body>
+<div id="nameInputContainer">
+  <h2>🐍 Enter Your Name 🐍</h2>
+  <input type="text" id="playerName" placeholder="Enter your name" />
+  <button onclick="startGame()">START GAME</button>
+</div>
+<div id="gameOverScreen">
+  <div id="gameOverContent">
+    <h1>🎮 GAME OVER 🎮</h1>
+    <p id="finalMessage"></p>
+    <button onclick="location.reload()">PLAY AGAIN</button>
+  </div>
+</div>
+<div id="title">🐍 SNAKE GAME 🍎</div>
+<div id="score">Score: 0</div>
+<canvas id="game" width="800" height="800"></canvas>
+<script src="snake.js"></script>
+</body>
+</html>
