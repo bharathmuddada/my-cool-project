@@ -129,7 +129,7 @@ function loop() {
   }
   update();
   draw();
-  setTimeout(loop, 200);
+  setTimeout(loop, 350);
 }
 
 function update() {
